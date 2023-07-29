@@ -6,7 +6,7 @@ interface Props {}
 interface Props {
   name: string;
   item: any;
-  setItem: React.Dispatch<React.SetStateAction<any | null>>;
+  setItem: (item: any) => void;
   checked: (item: any) => boolean;
 }
 

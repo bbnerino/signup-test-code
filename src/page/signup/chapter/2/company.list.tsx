@@ -6,7 +6,7 @@ import { SignupService } from "../../../../types/signup/signup.service";
 interface Props {
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
-  setCompany: React.Dispatch<React.SetStateAction<string>>;
+  setCompany: (company: string) => void;
   setPopCompanylist: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

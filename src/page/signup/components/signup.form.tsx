@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const SignupForm = ({ children }: { children: React.ReactNode }) => {
+const SignupFormWrapper = ({ children }: { children: React.ReactNode }) => {
   return <Wrapper>{children}</Wrapper>;
 };
 
@@ -24,4 +24,4 @@ const Wrapper = styled.section`
     height: 550px;
   }
 `;
-export default SignupForm;
+export default SignupFormWrapper;

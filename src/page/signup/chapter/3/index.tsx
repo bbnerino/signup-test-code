@@ -3,7 +3,7 @@ import { Job } from "../../../../types/signup/signup.entity";
 import { SignupChapter } from "../../../../types/constants/signup.constants";
 import { styled } from "styled-components";
 import RoundButton from "../../../../library/button/round.button";
-import SignupForm from "../../components/signup.form";
+import SignupFormWrapper from "../../components/signup.form";
 import SignupTitleForm from "../../components/signup.form.title";
 import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
@@ -22,7 +22,7 @@ const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   useEffect(() => {
-    if (!job.license) setChapter(4);
+    if (!job.hasLicense) setChapter(4);
   }, [job]);
 
   const onSubmit = () => {
@@ -33,7 +33,7 @@ const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
   };
 
   return (
-    <SignupForm>
+    <SignupFormWrapper>
       <SignupTitleForm
         title="면허 번호를 입력하세요."
         subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
@@ -52,7 +52,7 @@ const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
       </SignupButtonForm>
-    </SignupForm>
+    </SignupFormWrapper>
   );
 };
 

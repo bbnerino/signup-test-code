@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
-import SignupForm from "../../components/signup.form";
+import SignupFormWrapper from "../../components/signup.form";
 
 interface Props {}
 
 const Signup6 = ({}: Props) => {
   return (
-    <SignupForm>
+    <SignupFormWrapper>
       <Wrapper className="content">
         <img src="/assets/house.png" alt="house" />
         <h5>조금만 기다려주세요.</h5>
@@ -15,7 +15,7 @@ const Signup6 = ({}: Props) => {
           <h6>승인이 완료되면 포털에 로그인 할 수 있습니다.</h6>
         </div>
       </Wrapper>
-    </SignupForm>
+    </SignupFormWrapper>
   );
 };
 

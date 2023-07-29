@@ -1,6 +1,22 @@
 export interface Job {
   name: string;
   value: string;
-  company: boolean;
-  license: boolean;
+  hasCompany: boolean;
+  hasLicense: boolean;
+}
+
+export class SignupForm {
+  job: Job | null;
+  company: string;
+  license?: string;
+  email: string;
+  password: string;
+
+  constructor() {
+    this.job = null;
+    this.company = "";
+    this.license = "";
+    this.email = "";
+    this.password = "";
+  }
 }

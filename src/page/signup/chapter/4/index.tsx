@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Job } from "../../../../types/signup/signup.entity";
 import { SignupChapter } from "../../../../types/constants/signup.constants";
 import RoundButton from "../../../../library/button/round.button";
-import SignupForm from "../../components/signup.form";
+import SignupFormWrapper from "../../components/signup.form";
 import SignupTitleForm from "../../components/signup.form.title";
 import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
@@ -55,7 +55,7 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
   };
 
   const toPrev = () => {
-    if (job.license) return setChapter(3);
+    if (job.hasLicense) return setChapter(3);
     setChapter(2);
   };
 
@@ -74,7 +74,7 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
   };
 
   return (
-    <SignupForm>
+    <SignupFormWrapper>
       <SignupTitleForm title="계정을 입력하세요 " />
       <div className="content">
         <InputLabel
@@ -98,7 +98,7 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
       </SignupButtonForm>
-    </SignupForm>
+    </SignupFormWrapper>
   );
 };
 
