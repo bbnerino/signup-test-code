@@ -20,7 +20,7 @@ const Wrapper = styled.section`
   }
   .content {
     width: 100%;
-    height: 500px;
+    height: 550px;
   }
 
 `;

@@ -20,13 +20,14 @@ interface Props {
 const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
   const [companyInput, setCompanyInput] = useState(company);
   const [popCompanylist, setPopCompanylist] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   const onSubmit = () => {
     if (job.company) {
-      if (company === "") return alert("기관명을 입력해주세요.");
+      if (company === "") return setErrorMessage("기관명을 입력하세요.");
     }
     if (!job.company) {
-      if (companyInput === "") return alert("기관명을 입력해주세요.");
+      if (companyInput === "") return setErrorMessage("기관명을 입력하세요.");
       setCompany(companyInput);
     }
     setChapter(3);
@@ -47,6 +48,7 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
               onChange={(e) => setCompanyInput(e.target.value)}
               value={companyInput}
               placeholder="기관명을 입력하세요"
+              errorMessage={errorMessage}
             />
           </div>
           {job.company && popCompanylist && (

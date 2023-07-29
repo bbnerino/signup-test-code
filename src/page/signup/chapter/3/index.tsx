@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Job } from "../../../../types/signup/signup.entity";
 import { SignupChapter } from "../../../../types/constants/signup.constants";
 import { styled } from "styled-components";
@@ -19,14 +19,15 @@ interface Props {
 
 const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
   const licenseInput = useInput(license);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   useEffect(() => {
-    !job.license && setChapter(4);
+    if (!job.license) setChapter(4);
   }, [job]);
 
   const onSubmit = () => {
     if (!REGEX.LICENSE.test(licenseInput.value))
-      return alert("면허 번호를 확인해주세요");
+      return setErrorMessage("면허 번호를 확인하세요.");
     setLicense(licenseInput.value);
     setChapter(4);
   };
@@ -40,8 +41,9 @@ const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
       <div className="content">
         <InputLabel
           title="면허 번호"
-          {...licenseInput}
           placeholder="면허 번호를 입력하세요."
+          {...licenseInput}
+          errorMessage={errorMessage}
         />
       </div>
       <SignupButtonForm>

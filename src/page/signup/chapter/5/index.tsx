@@ -23,7 +23,7 @@ const Signup5 = ({ setChapter, password, setPassword }: Props) => {
   const [errorMessage2, setErrorMessage2] = useState<null | string>(null);
 
   const toPrev = () => {
-    setChapter(2);
+    setChapter(4);
   };
 
   const checkPassword = (password: string) => REGEX.PASSWORD.test(password);
