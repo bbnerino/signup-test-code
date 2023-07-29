@@ -12,7 +12,7 @@ const Wrapper = styled.header`
   background-color: var(--accent-primary);
   display: flex;
   height: 80px;
-  padding: 10px 240px;
+  padding: 10px;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
