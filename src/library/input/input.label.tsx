@@ -1,30 +1,55 @@
-import React from "react";
+import React, { InputHTMLAttributes, useState } from "react";
 import { styled } from "styled-components";
 
-interface Props {
-  title: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   searchMode?: boolean;
-  children?: React.ReactNode;
   errorMessage?: null | string;
+  children?: React.ReactNode;
 }
 
-const InputLabel = ({ errorMessage, searchMode = false, ...props }: Props) => {
+const InputLabel = ({
+  errorMessage,
+  children,
+  searchMode = false,
+  type = "text",
+  ...props
+}: Props) => {
+  const [inputType, setInputType] = useState(type);
+
+  const handleType = () => {
+    if (inputType === "password") {
+      setInputType("text");
+    } else {
+      setInputType("password");
+    }
+  };
+
   return (
     <Wrapper>
       <label>{props.title}</label>
       <div className="input_wrapper" id={errorMessage ? "error-input" : ""}>
-        {searchMode && <span>🔎</span>}
-        <input
-          value={props.value}
-          onChange={props.onChange}
-          placeholder={props.placeholder}
-        />
+        {searchMode && <img src="/assets/search.png" alt="search" />}
+
+        <input type={inputType} {...props} />
+
+        {type === "password" &&
+          (inputType === "password" ? (
+            <img
+              src="/assets/eye-open.png"
+              alt="eye-open"
+              onClick={handleType}
+            />
+          ) : (
+            <img
+              src="/assets/eye-close.png"
+              alt="eye-close"
+              onClick={handleType}
+            />
+          ))}
+
         {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
-      {props.children}
+      {children}
     </Wrapper>
   );
 };
@@ -33,6 +58,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  margin-bottom: 30px;
   label {
     color: var(--text-primary);
     font-size: 13px;
@@ -49,9 +75,10 @@ const Wrapper = styled.div`
     border-radius: 8px;
     border: 1px solid var(--border-dark);
     margin-right: 30px;
-    span {
+    img {
       margin-left: 10px;
       margin-right: 2px;
+      cursor: pointer;
     }
     input {
       margin: 0px 10px;

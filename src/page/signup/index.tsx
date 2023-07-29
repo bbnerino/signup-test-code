@@ -7,12 +7,13 @@ import { Job } from "../../types/signup/signup.entity";
 import Signup2 from "./chapter/2";
 import Signup3 from "./chapter/3";
 import Signup4 from "./chapter/4";
+import Signup5 from "./chapter/5";
 
 interface Props {
   chapterData?: SignupChapter;
 }
 
-const SignupPage = ({ chapterData = 1 }: Props) => {
+const SignupPage = ({ chapterData = 1}: Props) => {
   // 회원가입 단계
   const [chapter, setChapter] = useState<SignupChapter>(chapterData);
 
@@ -34,28 +35,34 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
       {chapter === 2 && job && (
         <Signup2
           job={job}
+          setChapter={setChapter}
           company={company}
           setCompany={setCompany}
-          setChapter={setChapter}
         />
       )}
       {chapter === 3 && job && (
         <Signup3
-          setChapter={setChapter}
           job={job}
+          setChapter={setChapter}
           license={license}
           setLicense={setLicense}
         />
       )}
       {chapter === 4 && job && (
         <Signup4
-          setChapter={setChapter}
           job={job}
+          setChapter={setChapter}
           email={email}
           setEmail={setEmail}
         />
       )}
-      {/* {chapter === 5 && <Signup1 />} */}
+      {chapter === 5 && (
+        <Signup5
+          setChapter={setChapter}
+          password={password}
+          setPassword={setPassword}
+        />
+      )}
       {/* {chapter === 6 && <Signup1 />} */}
     </Wrapper>
   );

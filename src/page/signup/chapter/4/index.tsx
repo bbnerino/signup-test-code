@@ -7,7 +7,6 @@ import SignupTitleForm from "../../components/signup.form.title";
 import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
 import SignupButtonForm from "../../components/signup.form.button";
-import { REGEX } from "../../../../types/signup/regex";
 import DuplicateButton from "../../../../library/button/duplicate.button";
 import { SignupService } from "../../../../types/signup/signup.service";
 

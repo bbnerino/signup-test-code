@@ -18,16 +18,16 @@ interface Props {
 }
 
 const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
-  const companyInput = useInput(company);
+  const [companyInput, setCompanyInput] = useState(company);
   const [popCompanylist, setPopCompanylist] = useState(false);
 
   const onSubmit = () => {
     if (job.company) {
-      if (company === "") return alert("기관명을 입력해주세요");
+      if (company === "") return alert("기관명을 입력해주세요.");
     }
     if (!job.company) {
-      if (companyInput.value === "") return alert("기관명을 입력해주세요");
-      setCompany(companyInput.value);
+      if (companyInput === "") return alert("기관명을 입력해주세요.");
+      setCompany(companyInput);
     }
     setChapter(3);
   };
@@ -45,15 +45,16 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
             <InputLabel
               searchMode={job && job.company ? true : false}
               title="기관명"
-              {...companyInput}
+              onChange={(e) => setCompanyInput(e.target.value)}
+              value={companyInput}
               placeholder="기관명을 입력하세요"
             />
           </div>
           {job.company && popCompanylist && (
             <CompanyList
               setCompany={setCompany}
-              inputValue={companyInput.value}
-              setInputValue={companyInput.setValue}
+              inputValue={companyInput}
+              setInputValue={setCompanyInput}
               setPopCompanylist={setPopCompanylist}
             />
           )}

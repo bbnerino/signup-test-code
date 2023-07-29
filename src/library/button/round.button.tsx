@@ -8,11 +8,11 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 const colorStyle = {
   primary: {
-    background: "var(--accent-primary)",
+    backgroundColor: "var(--accent-primary)",
     color: "var(--text-contrast)",
   },
   secondary: {
-    background: "var(--action-light)",
+    backgroundColor: "var(--action-light)",
     color: "var(--accent-primary)",
   },
 };
@@ -23,10 +23,18 @@ const RoundButton = ({ variant = "primary", ...props }: Props) => {
 
 const Wrapper = styled.button`
   display: flex;
-  padding: 12px 120px;
+  padding: 12px;
+  justify-content: center;
+  width: 300px;
   border-radius: 33px;
   border: none;
   cursor: pointer;
+  background-color: yellow;
+
+  &:hover {
+    background-color: var(--active-primary) !important;
+    color: var(--text-contrast) !important;
+  }
 `;
 
 export default RoundButton;
