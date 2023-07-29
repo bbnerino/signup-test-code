@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Job } from "../../../../types/signup/signup.entity";
-import { SignupChapter } from "../../../../types/constants/signup.constants";
-import { styled } from "styled-components";
+import { useEffect, useState } from "react";
 import RoundButton from "../../../../library/button/round.button";
 import SignupFormWrapper from "../../components/signup.form";
 import SignupTitleForm from "../../components/signup.form.title";
@@ -9,26 +6,21 @@ import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
 import SignupButtonForm from "../../components/signup.form.button";
 import { REGEX } from "../../../../types/signup/regex";
+import { SignupProps } from "../../script/signup.props";
 
-interface Props {
-  setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
-  job: Job;
-  license: string;
-  setLicense: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
-  const licenseInput = useInput(license);
+const Signup3 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
+  const { job, license } = signupForm;
+  const licenseInput = useInput(license || "");
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   useEffect(() => {
-    if (!job.hasLicense) setChapter(4);
+    if (job && !job.hasLicense) setChapter(4);
   }, [job]);
 
   const onSubmit = () => {
     if (!REGEX.LICENSE.test(licenseInput.value))
       return setErrorMessage("면허 번호를 확인하세요.");
-    setLicense(licenseInput.value);
+    setSignupForm({ ...signupForm, license: licenseInput.value });
     setChapter(4);
   };
 

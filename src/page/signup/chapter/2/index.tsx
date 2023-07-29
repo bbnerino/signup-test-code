@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import { SignupForm } from "../../../../types/signup/signup.entity";
-import { SignupChapter } from "../../../../types/constants/signup.constants";
+import { useState } from "react";
 import RoundButton from "../../../../library/button/round.button";
 import SignupFormWrapper from "../../components/signup.form";
 import InputLabel from "../../../../library/input/input.label";
 import CompanyList from "./company.list";
 import SignupTitleForm from "../../components/signup.form.title";
 import SignupButtonForm from "../../components/signup.form.button";
+import { SignupProps } from "../../script/signup.props";
 
-interface Props {
-  signupForm: SignupForm;
-  setSignupForm: React.Dispatch<React.SetStateAction<SignupForm>>;
-  setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
-}
-
-const Signup2 = ({ signupForm, setSignupForm, setChapter }: Props) => {
+const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   const { job } = signupForm;
 
   const [companyInput, setCompanyInput] = useState(signupForm.company);
@@ -38,16 +31,6 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: Props) => {
     setSignupForm({ ...signupForm, company });
   };
 
-  if (job === null)
-    return (
-      <SignupFormWrapper>
-        <SignupTitleForm title="해당하는 직무를 선택하세요" />
-        <RoundButton variant="secondary" onClick={() => setChapter(1)}>
-          &lt; 이전
-        </RoundButton>
-      </SignupFormWrapper>
-    );
-
   return (
     <SignupFormWrapper>
       <SignupTitleForm
@@ -65,7 +48,7 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: Props) => {
           errorMessage={errorMessage}
         />
 
-        {job.hasCompany && popCompanylist && (
+        {job && job.hasCompany && popCompanylist && (
           <CompanyList
             setCompany={setCompany}
             inputValue={companyInput}

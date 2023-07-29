@@ -1,9 +1,7 @@
 import { styled } from "styled-components";
 import SignupFormWrapper from "../../components/signup.form";
 
-interface Props {}
-
-const Signup6 = ({}: Props) => {
+const Signup6 = () => {
   return (
     <SignupFormWrapper>
       <Wrapper className="content">

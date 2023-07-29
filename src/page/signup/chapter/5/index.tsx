@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Job } from "../../../../types/signup/signup.entity";
-import { SignupChapter } from "../../../../types/constants/signup.constants";
+import { useEffect, useState } from "react";
 import RoundButton from "../../../../library/button/round.button";
 import SignupFormWrapper from "../../components/signup.form";
 import SignupTitleForm from "../../components/signup.form.title";
@@ -8,14 +6,9 @@ import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
 import SignupButtonForm from "../../components/signup.form.button";
 import { REGEX } from "../../../../types/signup/regex";
+import { SignupProps } from "../../script/signup.props";
 
-interface Props {
-  setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Signup5 = ({ setChapter, password, setPassword }: Props) => {
+const Signup5 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   const passwordInput = useInput("");
   const passwordInput2 = useInput("");
 
@@ -46,7 +39,7 @@ const Signup5 = ({ setChapter, password, setPassword }: Props) => {
 
   const onSubmit = () => {
     if (errorMessage || errorMessage2) return alert("비밀번호를 확인해주세요.");
-    setPassword(passwordInput.value);
+    setSignupForm({ ...signupForm, password: passwordInput.value });
     setChapter(6);
   };
   return (

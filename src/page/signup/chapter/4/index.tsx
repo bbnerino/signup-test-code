@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Job } from "../../../../types/signup/signup.entity";
-import { SignupChapter } from "../../../../types/constants/signup.constants";
+import { useEffect, useState } from "react";
 import RoundButton from "../../../../library/button/round.button";
 import SignupFormWrapper from "../../components/signup.form";
 import SignupTitleForm from "../../components/signup.form.title";
@@ -9,15 +7,10 @@ import useInput from "../../../../library/hooks/useInput";
 import SignupButtonForm from "../../components/signup.form.button";
 import DuplicateButton from "../../../../library/button/duplicate.button";
 import { SignupService } from "../../../../types/signup/signup.service";
+import { SignupProps } from "../../script/signup.props";
 
-interface Props {
-  setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
-  job: Job;
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
+const Signup4 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
+  const { job, email } = signupForm;
   const emailInput = useInput(email);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
   const [checkEmail, setCheckEmail] = useState(false);
@@ -55,13 +48,13 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
   };
 
   const toPrev = () => {
-    if (job.hasLicense) return setChapter(3);
+    if (job && job.hasLicense) return setChapter(3);
     setChapter(2);
   };
 
   const onSubmit = () => {
     if (!checkEmail) return setErrorMessage("이메일 주소를 입력하세요.");
-    setEmail(emailInput.value);
+    setSignupForm({ ...signupForm, email: emailInput.value });
     setChapter(5);
   };
 
