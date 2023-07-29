@@ -7,6 +7,7 @@ import SignupForm from "../../components/signup.form";
 import useInput from "../../../../library/hooks/useInput";
 import InputLabel from "../../../../library/input/input.label";
 import CompanyList from "./company.list";
+import SignupTitleForm from "../../components/signup.title.form";
 
 interface Props {
   job: Job | null;
@@ -31,23 +32,19 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
     setChapter(3);
   };
 
-  const ToPrev = () => {
-    setChapter(1);
-  };
-
+  const ToPrev = () => setChapter(1);
   return (
     <SignupForm>
-      <div className="title">
-        <h5>소속된 기관을 입력하세요.</h5>
-        <h6>
-          쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고
-          있습니다.
-        </h6>
-      </div>
+      <SignupTitleForm
+        title="소속된 기관을 입력하세요."
+        subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
+      />
+
       <div className="content">
         <div className="input_box">
           <div onClick={() => setPopCompanylist(true)}>
             <InputLabel
+              searchMode={job && job.company ? true : false}
               title="기관명"
               {...companyInput}
               placeholder="기관명을 입력하세요"
@@ -65,7 +62,7 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
       </div>
       {/* {job && job.license && <CompanyList />} */}
       <ButtonWrapper>
-        <RoundButton variant="secondary" onClick={ToPrev}>
+        <RoundButton variant="secondary" onClick={() => setChapter(1)}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>

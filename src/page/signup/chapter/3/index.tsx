@@ -1,0 +1,50 @@
+import React from "react";
+import { Job } from "../../../../types/signup/signup";
+import { SignupChapter } from "../../../../types/constants/signup.constants";
+import { styled } from "styled-components";
+import RoundButton from "../../../../library/button/round.button";
+import SignupForm from "../../components/signup.form";
+import SignupTitleForm from "../../components/signup.title.form";
+import InputLabel from "../../../../library/input/input.label";
+import useInput from "../../../../library/hooks/useInput";
+
+interface Props {
+  setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
+  job: Job | null;
+  license: string;
+  setLicense: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
+  const onSubmit = () => {};
+  const licenseInput = useInput("");
+  return (
+    <SignupForm>
+      <SignupTitleForm
+        title="면허 번호를 입력하세요."
+        subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
+      />
+      <div className="content">
+        <InputLabel
+          title="면허 번호"
+          {...licenseInput}
+          placeholder="면허 번호를 입력하세요."
+        />
+      </div>
+
+      <ButtonWrapper>
+        <RoundButton variant="secondary" onClick={() => setChapter(2)}>
+          &lt; 이전
+        </RoundButton>
+        <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
+      </ButtonWrapper>
+    </SignupForm>
+  );
+};
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+`;
+export default Signup3;

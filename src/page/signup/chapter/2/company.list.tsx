@@ -57,7 +57,7 @@ const CompanyList = ({
 
 const Wrapper = styled.div`
   position: relative;
-  left: 82px;
+  left: 130px;
   top: 10px;
   width: 390px;
   height: 270px;

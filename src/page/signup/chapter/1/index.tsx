@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import JobList from "./job.list";
 import RoundButton from "../../../../library/button/round.button";
 import SignupForm from "../../components/signup.form";
+import SignupTitleForm from "../../components/signup.title.form";
 
 interface Props {
   job: Job | null;
@@ -19,10 +20,10 @@ const Signup1 = ({ job, setJob, setChapter }: Props) => {
   };
   return (
     <SignupForm>
-      <div className="title">
-        <h5>해당하는 직무를 선택하세요</h5>
+      <SignupTitleForm title="해당하는 직무를 선택하세요" />
+      <div className="content">
+        <JobList job={job} setJob={setJob} />
       </div>
-      <JobList job={job} setJob={setJob} />
       <ButtonWrapper>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
       </ButtonWrapper>

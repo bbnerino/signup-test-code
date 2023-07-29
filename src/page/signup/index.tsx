@@ -5,6 +5,7 @@ import { SignupChapter } from "../../types/constants/signup.constants";
 import Signup1 from "./chapter/1";
 import { Job } from "../../types/signup/signup";
 import Signup2 from "./chapter/2";
+import Signup3 from "./chapter/3";
 
 interface Props {
   chapterData?: SignupChapter;
@@ -37,7 +38,14 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
           setChapter={setChapter}
         />
       )}
-      {/* {chapter === 3 && <Signup1 />} */}
+      {chapter === 3 && (
+        <Signup3
+          setChapter={setChapter}
+          job={job}
+          license={license}
+          setLicense={setLicense}
+        />
+      )}
       {/* {chapter === 4 && <Signup1 />} */}
       {/* {chapter === 5 && <Signup1 />} */}
       {/* {chapter === 6 && <Signup1 />} */}
@@ -45,7 +53,5 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
   );
 };
 
-const Wrapper = styled.article`
-
-`;
+const Wrapper = styled.article``;
 export default SignupPage;

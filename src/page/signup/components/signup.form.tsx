@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 const SignupForm = ({ children }: { children: React.ReactNode }) => {
   return <Wrapper>{children}</Wrapper>;
 };
+
 const Wrapper = styled.section`
   display: flex;
   width: 632px;
