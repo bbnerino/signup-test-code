@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SignupChapter } from "../../types/signup/signup.constants";
 import Signup1 from "./chapter/1";
 import { Job } from "../../types/signup/signup";
+import Signup2 from "./chapter/2";
 
 interface Props {
   chapterData?: SignupChapter;
@@ -28,7 +29,14 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
       {chapter === 1 && (
         <Signup1 job={job} setJob={setJob} setChapter={setChapter} />
       )}
-      {/* {chapter === 2 && <Signup1 />} */}
+      {chapter === 2 && (
+        <Signup2
+          job={job}
+          company={company}
+          setCompany={setCompany}
+          setChapter={setChapter}
+        />
+      )}
       {/* {chapter === 3 && <Signup1 />} */}
       {/* {chapter === 4 && <Signup1 />} */}
       {/* {chapter === 5 && <Signup1 />} */}
@@ -38,7 +46,6 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
 };
 
 const Wrapper = styled.article`
-  .title {
-  }
+
 `;
 export default SignupPage;
