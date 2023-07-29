@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import RoundButton from "../../../library/button/round.button";
 import InputLabel from "../../../library/input/input.label";
 import useInput from "../../../library/hooks/useInput";
 import { REGEX } from "../../../types/signup/regex";
@@ -62,12 +61,10 @@ const Signup5 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
         />
       </SignupWrap.Content>
 
-      <SignupWrap.Footer>
-        <RoundButton variant="secondary" onClick={toPrev}>
-          &lt; 이전
-        </RoundButton>
-        <RoundButton onClick={onSubmit}>회원 가입하기 </RoundButton>
-      </SignupWrap.Footer>
+      <SignupWrap.Footer
+        left={{ onSubmit: toPrev, title: "< 이전" }}
+        right={{ onSubmit, title: "다음 &gt;" }}
+      />
     </SignupWrap>
   );
 };

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import RoundButton from "../../../library/button/round.button";
 import InputLabel from "../../../library/input/input.label";
 import CompanyList from "../components/company.list";
 import { SignupProps } from "../script/signup.props";
@@ -56,12 +55,10 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
         )}
       </SignupWrap.Content>
 
-      <SignupWrap.Footer>
-        <RoundButton variant="secondary" onClick={() => setChapter(1)}>
-          &lt; 이전
-        </RoundButton>
-        <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </SignupWrap.Footer>
+      <SignupWrap.Footer
+        left={{ onSubmit: () => setChapter(1), title: "< 이전" }}
+        right={{ onSubmit, title: "다음 &gt;" }}
+      />
     </SignupWrap>
   );
 };

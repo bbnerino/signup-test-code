@@ -1,5 +1,4 @@
 import JobList from "../components/job.list";
-import RoundButton from "../../../library/button/round.button";
 import { Job } from "../../../types/signup/signup.entity";
 import { SignupProps } from "../script/signup.props";
 import SignupWrap from "../components/form/signup.wrap";
@@ -21,9 +20,7 @@ const Signup1 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
         <JobList signupForm={signupForm} setJob={setJob} />
       </SignupWrap.Content>
 
-      <SignupWrap.Footer>
-        <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </SignupWrap.Footer>
+      <SignupWrap.Footer right={{ onSubmit, title: "다음 &gt;" }} />
     </SignupWrap>
   );
 };

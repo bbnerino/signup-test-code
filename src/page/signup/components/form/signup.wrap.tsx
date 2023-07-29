@@ -1,5 +1,6 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext } from "react";
 import { styled } from "styled-components";
+import RoundButton from "../../../../library/button/round.button";
 
 // Context 생성
 
@@ -31,8 +32,22 @@ const Content = ({ children }: { children: React.ReactNode }) => {
   return <div className="content">{children}</div>;
 };
 
-const Footer = ({ children }: { children: React.ReactNode }) => {
-  return <FooterWrapper>{children}</FooterWrapper>;
+interface FProps {
+  left?: { onSubmit: () => void; title: string };
+  right: { onSubmit: () => void; title: string };
+}
+
+const Footer = ({ left, right }: FProps) => {
+  return (
+    <FooterWrapper>
+      {left && (
+        <RoundButton variant="secondary" onClick={left.onSubmit}>
+          {left.title}
+        </RoundButton>
+      )}
+      <RoundButton onClick={right.onSubmit}>{right.title}</RoundButton>
+    </FooterWrapper>
+  );
 };
 
 SignupWrap.Title = Title;
