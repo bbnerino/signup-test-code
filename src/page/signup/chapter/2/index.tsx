@@ -7,21 +7,21 @@ import SignupForm from "../../components/signup.form";
 import useInput from "../../../../library/hooks/useInput";
 import InputLabel from "../../../../library/input/input.label";
 import CompanyList from "./company.list";
-import SignupTitleForm from "../../components/signup.title.form";
+import SignupTitleForm from "../../components/signup.form.title";
+import SignupButtonForm from "../../components/signup.form.button";
 
 interface Props {
-  job: Job | null;
+  job: Job;
   company: string;
   setCompany: React.Dispatch<React.SetStateAction<string>>;
   setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
 }
 
 const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
-  const companyInput = useInput("");
+  const companyInput = useInput(company);
   const [popCompanylist, setPopCompanylist] = useState(false);
 
   const onSubmit = () => {
-    if (!job) return alert("직무를 선택해주세요");
     if (job.company) {
       if (company === "") return alert("기관명을 입력해주세요");
     }
@@ -32,7 +32,6 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
     setChapter(3);
   };
 
-  const ToPrev = () => setChapter(1);
   return (
     <SignupForm>
       <SignupTitleForm
@@ -50,7 +49,7 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
               placeholder="기관명을 입력하세요"
             />
           </div>
-          {job && job.company && popCompanylist && (
+          {job.company && popCompanylist && (
             <CompanyList
               setCompany={setCompany}
               inputValue={companyInput.value}
@@ -61,22 +60,14 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
         </div>
       </div>
       {/* {job && job.license && <CompanyList />} */}
-      <ButtonWrapper>
+      <SignupButtonForm>
         <RoundButton variant="secondary" onClick={() => setChapter(1)}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </ButtonWrapper>
+      </SignupButtonForm>
     </SignupForm>
   );
 };
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  .input_box {
-    position: absolute;
-  }
-`;
 export default Signup2;

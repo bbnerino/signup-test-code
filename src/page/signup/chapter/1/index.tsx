@@ -5,7 +5,8 @@ import { styled } from "styled-components";
 import JobList from "./job.list";
 import RoundButton from "../../../../library/button/round.button";
 import SignupForm from "../../components/signup.form";
-import SignupTitleForm from "../../components/signup.title.form";
+import SignupTitleForm from "../../components/signup.form.title";
+import SignupButtonForm from "../../components/signup.form.button";
 
 interface Props {
   job: Job | null;
@@ -24,16 +25,11 @@ const Signup1 = ({ job, setJob, setChapter }: Props) => {
       <div className="content">
         <JobList job={job} setJob={setJob} />
       </div>
-      <ButtonWrapper>
+      <SignupButtonForm>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </ButtonWrapper>
+      </SignupButtonForm>
     </SignupForm>
   );
 };
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-`;
 export default Signup1;

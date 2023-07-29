@@ -30,7 +30,7 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
       {chapter === 1 && (
         <Signup1 job={job} setJob={setJob} setChapter={setChapter} />
       )}
-      {chapter === 2 && (
+      {chapter === 2 && job && (
         <Signup2
           job={job}
           company={company}
@@ -38,7 +38,7 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
           setChapter={setChapter}
         />
       )}
-      {chapter === 3 && (
+      {chapter === 3 && job && (
         <Signup3
           setChapter={setChapter}
           job={job}
