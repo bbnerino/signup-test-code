@@ -8,12 +8,13 @@ import Signup2 from "./chapter/2";
 import Signup3 from "./chapter/3";
 import Signup4 from "./chapter/4";
 import Signup5 from "./chapter/5";
+import Signup6 from "./chapter/6";
 
 interface Props {
   chapterData?: SignupChapter;
 }
 
-const SignupPage = ({ chapterData = 5}: Props) => {
+const SignupPage = ({ chapterData = 1 }: Props) => {
   // 회원가입 단계
   const [chapter, setChapter] = useState<SignupChapter>(chapterData);
 
@@ -63,7 +64,7 @@ const SignupPage = ({ chapterData = 5}: Props) => {
           setPassword={setPassword}
         />
       )}
-      {/* {chapter === 6 && <Signup1 />} */}
+      {chapter === 6 && <Signup6 />}
     </Wrapper>
   );
 };

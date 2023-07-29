@@ -1,11 +1,11 @@
 import React from "react";
 
 interface Props {
-  title: string;
+  title?: string;
   subTitle?: string;
 }
 
-const SignupTitleForm = ({ title, subTitle }: Props) => {
+const SignupTitleForm = ({ title = "", subTitle }: Props) => {
   return (
     <div className="title">
       <h5>{title}</h5>
