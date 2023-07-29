@@ -1,5 +1,5 @@
 import React from "react";
-import { Job } from "../../../../types/signup/signup";
+import { Job } from "../../../../types/signup/signup.entity";
 import { styled } from "styled-components";
 import InputRadio from "../../../../library/input/radio";
 import { JOB_LIST } from "../../../../types/constants/signup.constants";

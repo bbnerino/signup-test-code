@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import useTxtData from "../../../../library/hooks/useFetchTxt";
-import { COMPANY_URL } from "../../../../types/constants/company.constants";
+import { SignupService } from "../../../../types/signup/signup.service";
 
 interface Props {
   inputValue: string;
@@ -16,7 +16,11 @@ const CompanyList = ({
   setPopCompanylist,
   setInputValue,
 }: Props) => {
-  const { data: companyList, loading, error } = useTxtData(COMPANY_URL);
+  const {
+    data: companyList,
+    loading,
+    error,
+  } = useTxtData(SignupService.getCompanyListUrl);
   const [filteredCompanyList, setFilteredCompanyList] = useState<string[]>([]);
 
   useEffect(() => {

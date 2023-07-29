@@ -9,43 +9,45 @@ import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
 import SignupButtonForm from "../../components/signup.form.button";
 import { REGEX } from "../../../../types/signup/regex";
+import DuplicateButton from "../../../../library/button/duplicate.button";
 
 interface Props {
   setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
   job: Job;
-  license: string;
-  setLicense: React.Dispatch<React.SetStateAction<string>>;
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
-  const licenseInput = useInput(license);
-
-  useEffect(() => {
-    !job.license && setChapter(4);
-  }, [job]);
+const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
+  const emailInput = useInput(email);
 
   const onSubmit = () => {
-    if (!REGEX.license.test(licenseInput.value))
-      return alert("면허 번호를 확인해주세요");
-    setLicense(licenseInput.value);
-    setChapter(4);
+    if (!REGEX.email.test(emailInput.value))
+      return alert("계정을 확인해주세요");
+    setEmail(emailInput.value);
+    setChapter(5);
+  };
+
+  const toPrev = () => {
+    if (job.license) return setChapter(3);
+    setChapter(2);
   };
 
   return (
     <SignupForm>
-      <SignupTitleForm
-        title="면허 번호를 입력하세요."
-        subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
-      />
+      <SignupTitleForm title="계정을 입력하세요 " />
       <div className="content">
         <InputLabel
-          title="면허 번호"
-          {...licenseInput}
-          placeholder="면허 번호를 입력하세요."
-        />
+          title="이메일 계정"
+          {...emailInput}
+          placeholder="이메일을 입력하세요."
+        >
+          <DuplicateButton>중복 확인</DuplicateButton>
+        </InputLabel>
       </div>
+
       <SignupButtonForm>
-        <RoundButton variant="secondary" onClick={() => setChapter(2)}>
+        <RoundButton variant="secondary" onClick={toPrev}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
@@ -54,4 +56,4 @@ const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
   );
 };
 
-export default Signup3;
+export default Signup4;

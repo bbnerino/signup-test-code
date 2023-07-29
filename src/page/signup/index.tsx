@@ -3,9 +3,10 @@ import Header from "../../library/header/header";
 import { useState } from "react";
 import { SignupChapter } from "../../types/constants/signup.constants";
 import Signup1 from "./chapter/1";
-import { Job } from "../../types/signup/signup";
+import { Job } from "../../types/signup/signup.entity";
 import Signup2 from "./chapter/2";
 import Signup3 from "./chapter/3";
+import Signup4 from "./chapter/4";
 
 interface Props {
   chapterData?: SignupChapter;
@@ -21,7 +22,7 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
 
   const [company, setCompany] = useState("");
   const [license, setLicense] = useState("");
-  const [account, setAccount] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
@@ -46,7 +47,14 @@ const SignupPage = ({ chapterData = 1 }: Props) => {
           setLicense={setLicense}
         />
       )}
-      {/* {chapter === 4 && <Signup1 />} */}
+      {chapter === 4 && job && (
+        <Signup4
+          setChapter={setChapter}
+          job={job}
+          email={email}
+          setEmail={setEmail}
+        />
+      )}
       {/* {chapter === 5 && <Signup1 />} */}
       {/* {chapter === 6 && <Signup1 />} */}
     </Wrapper>

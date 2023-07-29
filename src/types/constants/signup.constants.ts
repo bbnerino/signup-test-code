@@ -1,4 +1,4 @@
-import { Job } from "../signup/signup";
+import { Job } from "../signup/signup.entity";
 
 export type SignupChapter = 1 | 2 | 3 | 4 | 5 | 6;
 

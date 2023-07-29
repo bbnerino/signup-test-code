@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Job } from "../../../../types/signup/signup";
+import { Job } from "../../../../types/signup/signup.entity";
 import { SignupChapter } from "../../../../types/constants/signup.constants";
 import { styled } from "styled-components";
 import JobList from "./job.list";

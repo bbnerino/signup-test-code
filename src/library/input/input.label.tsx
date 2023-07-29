@@ -7,6 +7,7 @@ interface Props {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   searchMode?: boolean;
+  children?: React.ReactNode;
 }
 
 const InputLabel = ({ searchMode = false, ...props }: Props) => {
@@ -21,6 +22,7 @@ const InputLabel = ({ searchMode = false, ...props }: Props) => {
           placeholder={props.placeholder}
         />
       </div>
+      {props.children}
     </Wrapper>
   );
 };
@@ -43,8 +45,9 @@ const Wrapper = styled.div`
     padding: 8px 0px;
     border-radius: 8px;
     border: 1px solid var(--border-dark);
+    margin-right: 30px;
     span {
-      margin-left:10px;
+      margin-left: 10px;
       margin-right: 2px;
     }
     input {
