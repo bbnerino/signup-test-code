@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import RoundButton from "../../../library/button/round.button";
-import SignupFormWrapper from "../components/form/signup.form.wrap";
-import SignupTitleForm from "../components/form/signup.form.title";
 import InputLabel from "../../../library/input/input.label";
 import useInput from "../../../library/hooks/useInput";
-import SignupButtonForm from "../components/form/signup.form.button";
 import DuplicateButton from "../../../library/button/duplicate.button";
 import { SignupService } from "../../../types/signup/signup.service";
 import { SignupProps } from "../script/signup.props";
+import SignupWrap from "../components/form/signup.wrap";
 
 const Signup4 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   const { job, email } = signupForm;
@@ -67,9 +65,9 @@ const Signup4 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   };
 
   return (
-    <SignupFormWrapper>
-      <SignupTitleForm title="계정을 입력하세요 " />
-      <div className="content">
+    <SignupWrap>
+      <SignupWrap.Title title="계정을 입력하세요 " />
+      <SignupWrap.Content>
         <InputLabel
           title="이메일 계정"
           {...emailInput}
@@ -83,15 +81,15 @@ const Signup4 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
             {isResponse ? "⌛️" : checkEmail ? "확인 완료" : "중복 확인"}
           </DuplicateButton>
         </InputLabel>
-      </div>
+      </SignupWrap.Content>
 
-      <SignupButtonForm>
+      <SignupWrap.Footer>
         <RoundButton variant="secondary" onClick={toPrev}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </SignupButtonForm>
-    </SignupFormWrapper>
+      </SignupWrap.Footer>
+    </SignupWrap>
   );
 };
 

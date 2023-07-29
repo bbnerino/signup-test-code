@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import RoundButton from "../../../library/button/round.button";
-import SignupFormWrapper from "../components/form/signup.form.wrap";
-import SignupTitleForm from "../components/form/signup.form.title";
 import InputLabel from "../../../library/input/input.label";
 import useInput from "../../../library/hooks/useInput";
-import SignupButtonForm from "../components/form/signup.form.button";
 import { REGEX } from "../../../types/signup/regex";
 import { SignupProps } from "../script/signup.props";
+import SignupWrap from "../components/form/signup.wrap";
 
 const Signup5 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   const passwordInput = useInput("");
@@ -43,9 +41,9 @@ const Signup5 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
     setChapter(6);
   };
   return (
-    <SignupFormWrapper>
-      <SignupTitleForm title="비밀번호를 입력하세요." />
-      <div className="content">
+    <SignupWrap>
+      <SignupWrap.Title title="비밀번호를 입력하세요." />
+      <SignupWrap.Content>
         <InputLabel
           title="비밀번호"
           type="password"
@@ -62,15 +60,15 @@ const Signup5 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
           placeholder="비밀번호를 한번 더 입력하세요."
           errorMessage={errorMessage2}
         />
-      </div>
+      </SignupWrap.Content>
 
-      <SignupButtonForm>
+      <SignupWrap.Footer>
         <RoundButton variant="secondary" onClick={toPrev}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>회원 가입하기 </RoundButton>
-      </SignupButtonForm>
-    </SignupFormWrapper>
+      </SignupWrap.Footer>
+    </SignupWrap>
   );
 };
 

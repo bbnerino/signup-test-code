@@ -1,10 +1,8 @@
 import JobList from "../components/job.list";
 import RoundButton from "../../../library/button/round.button";
-import SignupTitleForm from "../components/form/signup.form.title";
-import SignupButtonForm from "../components/form/signup.form.button";
 import { Job } from "../../../types/signup/signup.entity";
-import SignupFormWrapper from "../components/form/signup.form.wrap";
 import { SignupProps } from "../script/signup.props";
+import SignupWrap from "../components/form/signup.wrap";
 
 const Signup1 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   const onSubmit = () => {
@@ -17,15 +15,16 @@ const Signup1 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   };
 
   return (
-    <SignupFormWrapper>
-      <SignupTitleForm title="해당하는 직무를 선택하세요" />
-      <div className="content">
+    <SignupWrap>
+      <SignupWrap.Title title="해당하는 직무를 선택하세요" />
+      <SignupWrap.Content>
         <JobList signupForm={signupForm} setJob={setJob} />
-      </div>
-      <SignupButtonForm>
+      </SignupWrap.Content>
+
+      <SignupWrap.Footer>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </SignupButtonForm>
-    </SignupFormWrapper>
+      </SignupWrap.Footer>
+    </SignupWrap>
   );
 };
 

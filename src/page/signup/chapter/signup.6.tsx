@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-import SignupFormWrapper from "../components/form/signup.form.wrap";
+import SignupWrap from "../components/form/signup.wrap";
 
 const Signup6 = () => {
   return (
-    <SignupFormWrapper>
+    <SignupWrap>
       <Wrapper className="content">
         <img src="/assets/house.png" alt="house" />
         <h5>조금만 기다려주세요.</h5>
@@ -13,7 +13,7 @@ const Signup6 = () => {
           <h6>승인이 완료되면 포털에 로그인 할 수 있습니다.</h6>
         </div>
       </Wrapper>
-    </SignupFormWrapper>
+    </SignupWrap>
   );
 };
 

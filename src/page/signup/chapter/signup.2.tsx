@@ -1,11 +1,9 @@
 import { useState } from "react";
 import RoundButton from "../../../library/button/round.button";
-import SignupFormWrapper from "../components/form/signup.form.wrap";
 import InputLabel from "../../../library/input/input.label";
 import CompanyList from "../components/company.list";
-import SignupTitleForm from "../components/form/signup.form.title";
-import SignupButtonForm from "../components/form/signup.form.button";
 import { SignupProps } from "../script/signup.props";
+import SignupWrap from "../components/form/signup.wrap";
 
 const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   const { job } = signupForm;
@@ -32,12 +30,12 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   };
 
   return (
-    <SignupFormWrapper>
-      <SignupTitleForm
+    <SignupWrap>
+      <SignupWrap.Title
         title="소속된 기관을 입력하세요."
         subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
       />
-      <div className="content">
+      <SignupWrap.Content>
         <InputLabel
           onFocus={() => setPopCompanylist(true)}
           searchMode={job && job.hasCompany ? true : false}
@@ -56,14 +54,15 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
             setPopCompanylist={setPopCompanylist}
           />
         )}
-      </div>
-      <SignupButtonForm>
+      </SignupWrap.Content>
+
+      <SignupWrap.Footer>
         <RoundButton variant="secondary" onClick={() => setChapter(1)}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </SignupButtonForm>
-    </SignupFormWrapper>
+      </SignupWrap.Footer>
+    </SignupWrap>
   );
 };
 

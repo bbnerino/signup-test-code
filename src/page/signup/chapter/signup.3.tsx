@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import RoundButton from "../../../library/button/round.button";
-import SignupFormWrapper from "../components/form/signup.form.wrap";
-import SignupTitleForm from "../components/form/signup.form.title";
 import InputLabel from "../../../library/input/input.label";
 import useInput from "../../../library/hooks/useInput";
-import SignupButtonForm from "../components/form/signup.form.button";
 import { REGEX } from "../../../types/signup/regex";
 import { SignupProps } from "../script/signup.props";
+import SignupWrap from "../components/form/signup.wrap";
 
 const Signup3 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   const { job, license } = signupForm;
@@ -25,26 +23,28 @@ const Signup3 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   };
 
   return (
-    <SignupFormWrapper>
-      <SignupTitleForm
+    <SignupWrap>
+      <SignupWrap.Title
         title="면허 번호를 입력하세요."
         subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
       />
-      <div className="content">
+
+      <SignupWrap.Content>
         <InputLabel
           title="면허 번호"
           placeholder="면허 번호를 입력하세요."
           {...licenseInput}
           errorMessage={errorMessage}
         />
-      </div>
-      <SignupButtonForm>
+      </SignupWrap.Content>
+
+      <SignupWrap.Footer>
         <RoundButton variant="secondary" onClick={() => setChapter(2)}>
           &lt; 이전
         </RoundButton>
         <RoundButton onClick={onSubmit}>다음 &gt; </RoundButton>
-      </SignupButtonForm>
-    </SignupFormWrapper>
+      </SignupWrap.Footer>
+    </SignupWrap>
   );
 };
 
