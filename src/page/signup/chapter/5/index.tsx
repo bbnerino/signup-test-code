@@ -7,6 +7,7 @@ import SignupTitleForm from "../../components/signup.form.title";
 import InputLabel from "../../../../library/input/input.label";
 import useInput from "../../../../library/hooks/useInput";
 import SignupButtonForm from "../../components/signup.form.button";
+import { REGEX } from "../../../../types/signup/regex";
 
 interface Props {
   setChapter: React.Dispatch<React.SetStateAction<SignupChapter>>;
@@ -25,12 +26,29 @@ const Signup5 = ({ setChapter, password, setPassword }: Props) => {
     setChapter(2);
   };
 
-  const onSubmit = () => {
-    setPassword(passwordInput.value);
-    setChapter(5);
-  };
+  const checkPassword = (password: string) => REGEX.PASSWORD.test(password);
 
-  useEffect(() => {}, [passwordInput.value, passwordInput2.value]);
+  useEffect(() => {
+    if (passwordInput.value === "") return setErrorMessage(null);
+    if (!checkPassword(passwordInput.value)) {
+      return setErrorMessage("8~16자 영문,숫자,특수문자를 입력하세요.");
+    }
+    setErrorMessage(null);
+  }, [passwordInput.value]);
+
+  useEffect(() => {
+    if (passwordInput2.value === "") return setErrorMessage2(null);
+    if (passwordInput.value !== passwordInput2.value) {
+      return setErrorMessage2("비밀번호와 일치하지 않습니다.");
+    }
+    setErrorMessage2(null);
+  }, [passwordInput2.value, passwordInput.value]);
+
+  const onSubmit = () => {
+    if (errorMessage || errorMessage2) return alert("비밀번호를 확인해주세요.");
+    setPassword(passwordInput.value);
+    setChapter(6);
+  };
   return (
     <SignupForm>
       <SignupTitleForm title="비밀번호를 입력하세요." />
@@ -40,7 +58,7 @@ const Signup5 = ({ setChapter, password, setPassword }: Props) => {
           type="password"
           value={passwordInput.value}
           onChange={passwordInput.onChange}
-          placeholder="이메일을 입력하세요."
+          placeholder="비밀번호를 입력하세요."
           errorMessage={errorMessage}
         />
         <InputLabel

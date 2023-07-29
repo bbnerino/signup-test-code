@@ -95,7 +95,9 @@ const Wrapper = styled.div`
   .error-message {
     position: absolute;
     color: var(--error-primary);
-    top: 50px;
+    font-size: 13px;
+    top: 43px;
+    left: 5px;
   }
 `;
 export default InputLabel;

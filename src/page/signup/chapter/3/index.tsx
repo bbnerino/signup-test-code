@@ -25,7 +25,7 @@ const Signup3 = ({ setChapter, job, license, setLicense }: Props) => {
   }, [job]);
 
   const onSubmit = () => {
-    if (!REGEX.license.test(licenseInput.value))
+    if (!REGEX.LICENSE.test(licenseInput.value))
       return alert("면허 번호를 확인해주세요");
     setLicense(licenseInput.value);
     setChapter(4);

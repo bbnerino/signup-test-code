@@ -13,7 +13,7 @@ interface Props {
   chapterData?: SignupChapter;
 }
 
-const SignupPage = ({ chapterData = 1}: Props) => {
+const SignupPage = ({ chapterData = 5}: Props) => {
   // 회원가입 단계
   const [chapter, setChapter] = useState<SignupChapter>(chapterData);
 
