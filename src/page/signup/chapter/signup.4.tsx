@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import RoundButton from "../../../library/button/round.button";
-import SignupFormWrapper from "../components/signup.form.wrap";
-import SignupTitleForm from "../components/signup.form.title";
+import SignupFormWrapper from "../components/form/signup.form.wrap";
+import SignupTitleForm from "../components/form/signup.form.title";
 import InputLabel from "../../../library/input/input.label";
 import useInput from "../../../library/hooks/useInput";
-import SignupButtonForm from "../components/signup.form.button";
+import SignupButtonForm from "../components/form/signup.form.button";
 import DuplicateButton from "../../../library/button/duplicate.button";
 import { SignupService } from "../../../types/signup/signup.service";
 import { SignupProps } from "../script/signup.props";

@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import SignupFormWrapper from "../components/signup.form.wrap";
+import SignupFormWrapper from "../components/form/signup.form.wrap";
 
 const Signup6 = () => {
   return (
