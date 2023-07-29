@@ -7,14 +7,17 @@ const EMAIL_DUPLICATION_CHECK_URL =
 export const SignupService = {
   getCompanyListUrl: COMPANY_LIST_URL,
   checkIsDuplicatedEmail: async (email: string) => {
-    const response = await fetch(EMAIL_DUPLICATION_CHECK_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: email }),
-    });
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch(EMAIL_DUPLICATION_CHECK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
+      return response;
+    } catch {
+      alert("이메일 중복 확인에 실패했습니다.");
+    }
   },
 };

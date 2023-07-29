@@ -22,5 +22,6 @@ const Wrapper = styled.section`
     width: 100%;
     height: 500px;
   }
+
 `;
 export default SignupForm;

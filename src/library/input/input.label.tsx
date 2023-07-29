@@ -8,19 +8,21 @@ interface Props {
   placeholder?: string;
   searchMode?: boolean;
   children?: React.ReactNode;
+  errorMessage?: null | string;
 }
 
-const InputLabel = ({ searchMode = false, ...props }: Props) => {
+const InputLabel = ({ errorMessage, searchMode = false, ...props }: Props) => {
   return (
     <Wrapper>
       <label>{props.title}</label>
-      <div className="input_wrapper">
+      <div className="input_wrapper" id={errorMessage ? "error-input" : ""}>
         {searchMode && <span>🔎</span>}
         <input
           value={props.value}
           onChange={props.onChange}
           placeholder={props.placeholder}
         />
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
       {props.children}
     </Wrapper>
@@ -40,6 +42,7 @@ const Wrapper = styled.div`
     width: 80px;
   }
   .input_wrapper {
+    position: relative;
     width: 450px;
     display: flex;
     padding: 8px 0px;
@@ -58,6 +61,14 @@ const Wrapper = styled.div`
         outline: none;
       }
     }
+  }
+  #error-input {
+    border: 1px solid var(--error-primary);
+  }
+  .error-message {
+    position: absolute;
+    color: var(--error-primary);
+    top: 50px;
   }
 `;
 export default InputLabel;

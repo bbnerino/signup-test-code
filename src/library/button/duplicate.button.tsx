@@ -3,17 +3,32 @@ import { styled } from "styled-components";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
+const colorStyle = {
+  primary: {
+    background: "var(--action-light)",
+    color: "var(--accent-primary)",
+    cursor: "pointer",
+  },
+  disabled: {
+    background: "var(--action-disabled)",
+    color: "var(--text-disabled)",
+    cursor: "default",
+  },
+};
+
 const DuplicateButton = ({ ...props }: Props) => {
-  return <Wrapper>{props.children}</Wrapper>;
+  return (
+    <Wrapper
+      style={colorStyle[props.disabled ? "disabled" : "primary"]}
+      {...props}
+    />
+  );
 };
 const Wrapper = styled.button`
-  color: var(--text-disabled);
-  text-align: center;
   border: 1px solid var(--border-disabled);
-  background: var(--action-disabled);
+  text-align: center;
   width: 100px;
   height: 35px;
   border-radius: 8px;
-  cursor: pointer;
 `;
 export default DuplicateButton;
