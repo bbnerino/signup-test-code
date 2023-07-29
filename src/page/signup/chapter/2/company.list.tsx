@@ -45,7 +45,7 @@ const CompanyList = ({
         {filteredCompanyList.map((company, idx) => (
           <div
             onClick={handleCompanyClick(company)}
-            key={`${company}${idx}`}
+            key={`${company + idx}`}
             className="company_item"
           >
             {company}
@@ -63,28 +63,28 @@ const Wrapper = styled.div`
   position: relative;
   left: 130px;
   top: 10px;
-  width: 390px;
+  width: 450px;
   height: 270px;
   display: flex;
-  padding: 15px 30px;
   border-radius: 8px;
   border: 1px solid var(--border-dark);
   overflow-y: auto;
+  padding: 15px 0;
   .company_list {
     width: 100%;
   }
   .company_item {
-    padding: 5px 0px;
+    padding: 5px 15px;
     font-size: 13px;
     font-weight: 500;
     line-height: 26px;
     cursor: pointer;
     &:hover {
-      background-color: var(--bg-light);
+      background-color: var(--action-light);
     }
   }
   .no_list {
-    padding: 5px 0px;
+    padding: 5px 15px;
     font-size: 13px;
     font-weight: 500;
     line-height: 26px;

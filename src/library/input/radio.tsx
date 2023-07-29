@@ -31,14 +31,14 @@ const Wrapper = styled.div`
     height: 50px;
     padding: 10px;
     margin-bottom: 30px;
-    border: 1px solid var(--border-dark);
+    border: 2px solid var(--border-dark);
     background-color: var(--background-surface);
     border-radius: 8px;
     cursor: pointer;
   }
 
   input[type="radio"]:checked + label {
-    border: 2px solid var(--accent-primary); /* 선택되었을 때 테두리 검정색으로 변경 */
+    border: 2px solid var(--accent-primary);
     background-color: var(--accent-background);
   }
 `;

@@ -38,10 +38,9 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
         title="소속된 기관을 입력하세요."
         subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
       />
-
       <div className="content">
         <div className="input_box">
-          <div onClick={() => setPopCompanylist(true)}>
+          <div onClick={() => setPopCompanylist(!popCompanylist)}>
             <InputLabel
               searchMode={job && job.company ? true : false}
               title="기관명"
