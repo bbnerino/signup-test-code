@@ -2,7 +2,7 @@ import React from "react";
 import { Job } from "../../../../types/signup/signup";
 import { styled } from "styled-components";
 import InputRadio from "../../../../library/input/radio";
-import { JOB_LIST } from "../../../../types/signup/signup.constants";
+import { JOB_LIST } from "../../../../types/constants/signup.constants";
 
 interface Props {
   job: Job | null;

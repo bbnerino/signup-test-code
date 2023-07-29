@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Job } from "../../../../types/signup/signup";
-import { SignupChapter } from "../../../../types/signup/signup.constants";
+import { SignupChapter } from "../../../../types/constants/signup.constants";
 import { styled } from "styled-components";
 import JobList from "./job.list";
 import RoundButton from "../../../../library/button/round.button";

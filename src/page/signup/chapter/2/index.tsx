@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Job } from "../../../../types/signup/signup";
-import { SignupChapter } from "../../../../types/signup/signup.constants";
+import { SignupChapter } from "../../../../types/constants/signup.constants";
 import { styled } from "styled-components";
 import RoundButton from "../../../../library/button/round.button";
 import SignupForm from "../../components/signup.form";
@@ -21,10 +21,10 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
 
   const onSubmit = () => {
     if (!job) return alert("직무를 선택해주세요");
-    if (job.license) {
+    if (job.company) {
       if (company === "") return alert("기관명을 입력해주세요");
     }
-    if (!job.license) {
+    if (!job.company) {
       if (companyInput.value === "") return alert("기관명을 입력해주세요");
       setCompany(companyInput.value);
     }
@@ -53,7 +53,7 @@ const Signup2 = ({ job, company, setCompany, setChapter }: Props) => {
               placeholder="기관명을 입력하세요"
             />
           </div>
-          {job && job.license && popCompanylist && (
+          {job && job.company && popCompanylist && (
             <CompanyList
               setCompany={setCompany}
               inputValue={companyInput.value}

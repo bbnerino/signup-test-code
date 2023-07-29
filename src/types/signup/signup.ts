@@ -1,5 +1,5 @@
 export interface Job {
   name: string;
   value: string;
-  license: boolean;
+  company: boolean;
 }

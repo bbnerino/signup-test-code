@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import Header from "../../library/header/header";
 import { useState } from "react";
-import { SignupChapter } from "../../types/signup/signup.constants";
+import { SignupChapter } from "../../types/constants/signup.constants";
 import Signup1 from "./chapter/1";
 import { Job } from "../../types/signup/signup";
 import Signup2 from "./chapter/2";

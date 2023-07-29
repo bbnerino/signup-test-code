@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import useTxtData from "../../../../library/hooks/useFetchTxt";
-import { COMPANY_URL } from "../../../../types/company/company.constants";
+import { COMPANY_URL } from "../../../../types/constants/company.constants";
 
 interface Props {
   inputValue: string;
