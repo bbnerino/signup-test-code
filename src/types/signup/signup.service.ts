@@ -5,7 +5,7 @@ const EMAIL_DUPLICATION_CHECK_URL =
   "https://kkwy2n35ug.execute-api.ap-northeast-2.amazonaws.com/dev/auth/check-duplication";
 
 export const SignupService = {
-  getCompanyListUrl: COMPANY_LIST_URL,
+  companyListUrl: COMPANY_LIST_URL,
   checkIsDuplicatedEmail: async (email: string) => {
     try {
       const response = await fetch(EMAIL_DUPLICATION_CHECK_URL, {

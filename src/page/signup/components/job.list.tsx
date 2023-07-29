@@ -1,8 +1,8 @@
 import React from "react";
-import { Job, SignupForm } from "../../../../types/signup/signup.entity";
+import { Job, SignupForm } from "../../../types/signup/signup.entity";
 import { styled } from "styled-components";
-import InputRadio from "../../../../library/input/radio";
-import { JOB_LIST } from "../../../../types/constants/signup.constants";
+import InputRadio from "../../../library/input/radio";
+import { JOB_LIST } from "../../../types/constants/signup.constants";
 
 interface Props {
   signupForm: SignupForm;

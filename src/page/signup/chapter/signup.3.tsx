@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import RoundButton from "../../../../library/button/round.button";
-import SignupFormWrapper from "../../components/signup.form";
-import SignupTitleForm from "../../components/signup.form.title";
-import InputLabel from "../../../../library/input/input.label";
-import useInput from "../../../../library/hooks/useInput";
-import SignupButtonForm from "../../components/signup.form.button";
-import { REGEX } from "../../../../types/signup/regex";
-import { SignupProps } from "../../script/signup.props";
+import RoundButton from "../../../library/button/round.button";
+import SignupFormWrapper from "../components/signup.form.wrap";
+import SignupTitleForm from "../components/signup.form.title";
+import InputLabel from "../../../library/input/input.label";
+import useInput from "../../../library/hooks/useInput";
+import SignupButtonForm from "../components/signup.form.button";
+import { REGEX } from "../../../types/signup/regex";
+import { SignupProps } from "../script/signup.props";
 
 const Signup3 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
   const { job, license } = signupForm;

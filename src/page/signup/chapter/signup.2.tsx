@@ -1,11 +1,11 @@
 import { useState } from "react";
-import RoundButton from "../../../../library/button/round.button";
-import SignupFormWrapper from "../../components/signup.form";
-import InputLabel from "../../../../library/input/input.label";
-import CompanyList from "./company.list";
-import SignupTitleForm from "../../components/signup.form.title";
-import SignupButtonForm from "../../components/signup.form.button";
-import { SignupProps } from "../../script/signup.props";
+import RoundButton from "../../../library/button/round.button";
+import SignupFormWrapper from "../components/signup.form.wrap";
+import InputLabel from "../../../library/input/input.label";
+import CompanyList from "../components/company.list";
+import SignupTitleForm from "../components/signup.form.title";
+import SignupButtonForm from "../components/signup.form.button";
+import { SignupProps } from "../script/signup.props";
 
 const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   const { job } = signupForm;

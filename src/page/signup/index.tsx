@@ -2,13 +2,13 @@ import { styled } from "styled-components";
 import Header from "../../library/header/header";
 import { useState } from "react";
 import { SignupChapter } from "../../types/constants/signup.constants";
-import Signup1 from "./chapter/1";
+import Signup1 from "./chapter/signup.1";
 import { SignupForm } from "../../types/signup/signup.entity";
-import Signup2 from "./chapter/2";
-import Signup3 from "./chapter/3";
-import Signup4 from "./chapter/4";
-import Signup5 from "./chapter/5";
-import Signup6 from "./chapter/6";
+import Signup2 from "./chapter/signup.2";
+import Signup3 from "./chapter/signup.3";
+import Signup4 from "./chapter/signup.4";
+import Signup5 from "./chapter/signup.5";
+import Signup6 from "./chapter/signup.6";
 
 interface Props {
   chapterData?: SignupChapter;

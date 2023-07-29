@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import useTxtData from "../../../../library/hooks/useFetchTxt";
-import { SignupService } from "../../../../types/signup/signup.service";
+import useTxtData from "../../../library/hooks/useFetchTxt";
+import { SignupService } from "../../../types/signup/signup.service";
 
 interface Props {
   inputValue: string;
@@ -20,7 +20,8 @@ const CompanyList = ({
     data: companyList,
     loading,
     error,
-  } = useTxtData(SignupService.getCompanyListUrl);
+  } = useTxtData(SignupService.companyListUrl);
+
   const [filteredCompanyList, setFilteredCompanyList] = useState<string[]>([]);
 
   useEffect(() => {
@@ -43,13 +44,12 @@ const CompanyList = ({
     <Wrapper>
       <div className="company_list">
         {filteredCompanyList.map((company, idx) => (
-          <div
-            onClick={handleCompanyClick(company)}
+          <CompanyEl
             key={`${company + idx}`}
-            className="company_item"
+            onClick={handleCompanyClick(company)}
           >
             {company}
-          </div>
+          </CompanyEl>
         ))}
         {filteredCompanyList.length === 0 && (
           <div className="no_list">검색 결과가 없습니다.</div>
@@ -73,22 +73,24 @@ const Wrapper = styled.div`
   .company_list {
     width: 100%;
   }
-  .company_item {
-    padding: 5px 15px;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 26px;
-    cursor: pointer;
-    &:hover {
-      background-color: var(--action-light);
-    }
-  }
+
   .no_list {
     padding: 5px 15px;
     font-size: 13px;
     font-weight: 500;
     line-height: 26px;
     color: var(--border-dark);
+  }
+`;
+
+const CompanyEl = styled.div`
+  padding: 5px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 26px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--action-light);
   }
 `;
 

@@ -1,10 +1,10 @@
-import JobList from "./job.list";
-import RoundButton from "../../../../library/button/round.button";
-import SignupTitleForm from "../../components/signup.form.title";
-import SignupButtonForm from "../../components/signup.form.button";
-import { Job } from "../../../../types/signup/signup.entity";
-import SignupFormWrapper from "../../components/signup.form";
-import { SignupProps } from "../../script/signup.props";
+import JobList from "../components/job.list";
+import RoundButton from "../../../library/button/round.button";
+import SignupTitleForm from "../components/signup.form.title";
+import SignupButtonForm from "../components/signup.form.button";
+import { Job } from "../../../types/signup/signup.entity";
+import SignupFormWrapper from "../components/signup.form.wrap";
+import { SignupProps } from "../script/signup.props";
 
 const Signup1 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
   const onSubmit = () => {
