@@ -1,7 +1,9 @@
+import SignupPage from "./page/signup";
+
 function App() {
   return (
     <div className="App">
-      <h1>HI</h1>
+      <SignupPage />
     </div>
   );
 }
