@@ -17,11 +17,11 @@ const Wrapper = styled.section`
   }
   .title {
     margin: 50px 0;
+    height: 80px;
   }
   .content {
     width: 100%;
     height: 550px;
   }
-
 `;
 export default SignupForm;

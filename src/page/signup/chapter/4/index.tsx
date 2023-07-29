@@ -21,6 +21,7 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
   const emailInput = useInput(email);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
   const [checkEmail, setCheckEmail] = useState(false);
+  const [isResponse, setIsResponse] = useState(false);
 
   const checkEmailDuplicate = async () => {
     setCheckEmail(false);
@@ -28,9 +29,13 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
       return setErrorMessage("이메일 주소를 입력하세요.");
     }
 
+    setIsResponse(true);
+
     const response = await SignupService.checkIsDuplicatedEmail(
       emailInput.value
     );
+
+    setIsResponse(false);
 
     if (!response) {
       setErrorMessage("서버 오류입니다. 잠시 후 다시 시도해주세요.");
@@ -43,7 +48,7 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
       return;
     }
     if (response.status === 409) {
-      setErrorMessage("이미 사용중인 이메일입니다.");
+      setErrorMessage("이미 사용중인 계정 입니다.");
       return;
     }
     setErrorMessage("서버 오류입니다. 잠시 후 다시 시도해주세요.");
@@ -55,14 +60,18 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
   };
 
   const onSubmit = () => {
-    if (!checkEmail) return alert("이메일 중복 확인을 해주세요.");
+    if (!checkEmail) return setErrorMessage("이메일 주소를 입력하세요.");
     setEmail(emailInput.value);
     setChapter(5);
   };
 
-  useEffect(() => {
-    setCheckEmail(false);
-  }, [emailInput.value]);
+  useEffect(() => setCheckEmail(false), [emailInput.value]);
+
+  const checkDisabled = () => {
+    if (isResponse) return true;
+    if (checkEmail) return true;
+    return false;
+  };
 
   return (
     <SignupForm>
@@ -74,8 +83,11 @@ const Signup4 = ({ setChapter, job, email, setEmail }: Props) => {
           placeholder="이메일을 입력하세요."
           errorMessage={errorMessage}
         >
-          <DuplicateButton disabled={checkEmail} onClick={checkEmailDuplicate}>
-            {checkEmail ? "확인 완료" : "중복 확인"}
+          <DuplicateButton
+            disabled={checkDisabled()}
+            onClick={checkEmailDuplicate}
+          >
+            {isResponse ? "⌛️" : checkEmail ? "확인 완료" : "중복 확인"}
           </DuplicateButton>
         </InputLabel>
       </div>

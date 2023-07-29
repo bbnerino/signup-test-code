@@ -19,6 +19,7 @@ const colorStyle = {
 const DuplicateButton = ({ ...props }: Props) => {
   return (
     <Wrapper
+      className={props.disabled ? "disabled" : "active"}
       style={colorStyle[props.disabled ? "disabled" : "primary"]}
       {...props}
     />
@@ -30,5 +31,9 @@ const Wrapper = styled.button`
   width: 100px;
   height: 35px;
   border-radius: 8px;
+  &.active:hover {
+    border: 1px solid var(--active-primary) !important;
+    color: var(--active-primary) !important;
+  }
 `;
 export default DuplicateButton;

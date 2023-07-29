@@ -35,6 +35,10 @@ const Wrapper = styled.div`
     background-color: var(--background-surface);
     border-radius: 8px;
     cursor: pointer;
+    &:hover {
+      border: 2px solid var(--active-primary);
+      transition: 0.5s;
+    }
   }
 
   input[type="radio"]:checked + label {
