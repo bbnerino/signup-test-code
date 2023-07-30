@@ -65,17 +65,19 @@ const Signup4 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
 
   return (
     <SignupWrap>
-      <SignupWrap.Title title="계정을 입력하세요 " />
+      <SignupWrap.Title title="계정을 입력하세요." dataTestid="4" />
       <SignupWrap.Content>
         <InputLabel
           title="이메일 계정"
           {...emailInput}
           placeholder="이메일을 입력하세요."
           errorMessage={errorMessage}
+          dataTestId="email-input"
         >
           <DuplicateButton
             disabled={checkDisabled()}
             onClick={checkEmailDuplicate}
+            data-testid="duplicate-button"
           >
             {isResponse ? "⌛️" : checkEmail ? "확인 완료" : "중복 확인"}
           </DuplicateButton>
