@@ -1,10 +1,9 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import { act, render, screen } from "@testing-library/react";
-import SignupPage from "../page/signup";
+import SignupPage from "../../page/signup";
 import userEvent from "@testing-library/user-event";
-import { delay } from "./utils";
 
-describe("'회원가입창 확인", () => {
+describe("'회원가입 1페이지 확인", () => {
   describe("회원가입창 렌더 확인", () => {
     test("헤더 확인", async () => {
       render(<SignupPage />);
@@ -42,7 +41,7 @@ describe("'회원가입창 확인", () => {
       expect(await screen.findByTestId("error-message")).toBeInTheDocument();
     });
 
-    test("직무 선택 후 2페이지 변경 확인", async () => {
+    test("직무 선택 후 2페이지 이동 확인", async () => {
       render(<SignupPage />);
       const $doctor_button = await screen.findByTestId("job-input-doctor");
       act(() => userEvent.click($doctor_button));
@@ -50,7 +49,6 @@ describe("'회원가입창 확인", () => {
       const $next_btn = await screen.findByTestId("next-button");
       act(() => userEvent.click($next_btn));
 
-      await delay(100);
       expect(await screen.findByTestId("chapter-title-2")).toBeInTheDocument();
     });
   });

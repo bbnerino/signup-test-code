@@ -44,6 +44,7 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
           value={companyInput}
           placeholder="기관명을 입력하세요"
           errorMessage={errorMessage}
+          dataTestId="company-input"
         />
 
         {job && job.hasCompany && popCompanylist && (
