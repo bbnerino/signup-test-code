@@ -13,8 +13,13 @@ interface Props {
 const InputRadio = ({ name, item, setItem, checked }: Props) => {
   return (
     <Wrapper onClick={() => setItem(item)}>
-      <input readOnly type="radio" checked={checked(item)} />
-      <label>{name}</label>
+      <input
+        data-testid={`job-input-${item.value}`}
+        readOnly
+        type="radio"
+        checked={checked(item)}
+      />
+      <label data-testid="job-label">{name}</label>
     </Wrapper>
   );
 };

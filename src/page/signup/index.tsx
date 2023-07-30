@@ -12,11 +12,15 @@ import Signup6 from "./chapter/signup.6";
 
 interface Props {
   chapterData?: SignupChapter;
+  initailForm?: SignupForm;
 }
 
-const SignupPage = ({ chapterData = 1 }: Props) => {
+const SignupPage = ({
+  chapterData = 1,
+  initailForm = new SignupForm(),
+}: Props) => {
   const [chapter, setChapter] = useState<SignupChapter>(chapterData);
-  const [signupForm, setSignupForm] = useState<SignupForm>(new SignupForm());
+  const [signupForm, setSignupForm] = useState<SignupForm>(initailForm);
   // 1) 직무 선택  2) 소속  3) 면허 번호  4) 계정  5) 비밀번호  6) 완료
   const props = { setChapter, signupForm, setSignupForm };
   return (

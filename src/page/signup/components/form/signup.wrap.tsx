@@ -17,11 +17,12 @@ const SignupWrap = ({ children }: { children: React.ReactNode }) => {
 interface TProps {
   title?: string;
   subTitle?: string;
+  dataTestid?: string;
 }
 
-const Title = ({ title = "", subTitle }: TProps) => {
+const Title = ({ title = "", subTitle, dataTestid }: TProps) => {
   return (
-    <div className="title">
+    <div data-testid={`chapter-title-${dataTestid}`} className="title">
       <h5>{title}</h5>
       {subTitle && <h6>{subTitle}</h6>}
     </div>
@@ -41,11 +42,17 @@ const Footer = ({ left, right }: FProps) => {
   return (
     <FooterWrapper>
       {left && (
-        <RoundButton variant="secondary" onClick={left.onSubmit}>
+        <RoundButton
+          data-testid="prev-button"
+          variant="secondary"
+          onClick={left.onSubmit}
+        >
           {left.title}
         </RoundButton>
       )}
-      <RoundButton onClick={right.onSubmit}>{right.title}</RoundButton>
+      <RoundButton data-testid="next-button" onClick={right.onSubmit}>
+        {right.title}
+      </RoundButton>
     </FooterWrapper>
   );
 };
@@ -73,6 +80,10 @@ const Wrapper = styled.section`
   .content {
     width: 100%;
     height: 550px;
+  }
+  .error-message {
+    color: var(--error-primary);
+    font-size: 13px;
   }
 `;
 const FooterWrapper = styled.div`

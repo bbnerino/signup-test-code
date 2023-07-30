@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 
 const Header = ({ title }: { title: string }) => {
   return (
-    <Wrapper>
+    <Wrapper data-testid="signup-header">
       <h5>{title}</h5>
     </Wrapper>
   );

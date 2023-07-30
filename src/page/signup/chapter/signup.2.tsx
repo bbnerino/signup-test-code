@@ -33,6 +33,7 @@ const Signup2 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
       <SignupWrap.Title
         title="소속된 기관을 입력하세요."
         subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
+        dataTestid="2"
       />
       <SignupWrap.Content>
         <InputLabel

@@ -112,8 +112,6 @@ const Input = styled.div`
   }
   .error-message {
     position: absolute;
-    color: var(--error-primary);
-    font-size: 13px;
     top: 43px;
     left: 5px;
   }
