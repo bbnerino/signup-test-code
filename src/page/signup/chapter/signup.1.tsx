@@ -18,7 +18,7 @@ const Signup1 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
 
   return (
     <SignupWrap>
-      <SignupWrap.Title title="해당하는 직무를 선택하세요" />
+      <SignupWrap.Title title="해당하는 직무를 선택하세요" dataTestid="1" />
       <SignupWrap.Content>
         <JobList signupForm={signupForm} setJob={setJob} />
         {errorMessage && (

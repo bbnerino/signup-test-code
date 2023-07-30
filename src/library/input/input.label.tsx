@@ -12,11 +12,11 @@ const InputLabel = ({
   errorMessage,
   children,
   searchMode = false,
-  type = "text",
   dataTestId,
+  type,
   ...props
 }: Props) => {
-  const [inputType, setInputType] = useState(type);
+  const [inputType, setInputType] = useState(type || "text");
 
   const [isFocus, setIsFocus] = useState(false);
 
@@ -44,22 +44,14 @@ const InputLabel = ({
         />
 
         {type === "password" && (
-          <>
+          <span data-testid={`${dataTestId}-visible`} onClick={handleType}>
             {inputType === "password" && (
-              <img
-                src="/assets/eye-open.png"
-                alt="eye-open"
-                onClick={handleType}
-              />
+              <img src="/assets/eye-open.png" alt="eye-open" />
             )}
-            {type === "text" && (
-              <img
-                src="/assets/eye-close.png"
-                alt="eye-close"
-                onClick={handleType}
-              />
+            {inputType === "text" && (
+              <img src="/assets/eye-close.png" alt="eye-close" />
             )}
-          </>
+          </span>
         )}
 
         {errorMessage && (

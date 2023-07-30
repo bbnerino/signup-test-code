@@ -45,7 +45,7 @@ describe("회원가입 4페이지 확인", () => {
 
       act(() => userEvent.click($check_btn));
 
-      await act(() => delay(100));
+      await act(() => delay(300));
 
       const $error = await screen.findByText("이미 사용중인 계정 입니다.");
       expect($error).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe("회원가입 4페이지 확인", () => {
       const $check_btn = await screen.findByTestId("duplicate-button");
 
       act(() => userEvent.click($check_btn));
-      await act(() => delay(100));
+      await act(() => delay(300));
       expect($check_btn).toHaveTextContent("확인 완료");
     });
     test("중복 확인 후 5 페이지 넘어가기", async () => {

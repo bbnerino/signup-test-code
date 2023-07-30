@@ -4,8 +4,8 @@ import SignupWrap from "../components/form/signup.wrap";
 const Signup6 = () => {
   return (
     <SignupWrap>
-      <Wrapper className="content">
-        <img src="/assets/house.png" alt="house" />
+      <Wrapper data-testid="chapter-title-6" className="content">
+        <img src="/assets/house.png" alt="home" />
         <h5>조금만 기다려주세요.</h5>
         <h5>마지막으로 내부 승인 절차를 진행하고 있습니다.</h5>
         <div className="sub_title">
