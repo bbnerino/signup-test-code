@@ -26,6 +26,7 @@ const Signup3 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
       <SignupWrap.Title
         title="면허 번호를 입력하세요."
         subTitle="쓰리빌리언은 안전한 유전 검사 의뢰를 위해 가입 정보를 확인하고 있습니다."
+        dataTestid="3"
       />
 
       <SignupWrap.Content>
@@ -34,6 +35,7 @@ const Signup3 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
           placeholder="면허 번호를 입력하세요."
           {...licenseInput}
           errorMessage={errorMessage}
+          dataTestId="license-input"
         />
       </SignupWrap.Content>
       <SignupWrap.Footer

@@ -79,7 +79,7 @@ const Wrapper = styled.section`
   }
   .content {
     width: 100%;
-    height: 550px;
+    height: 450px;
   }
   .error-message {
     color: var(--error-primary);

@@ -5,6 +5,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   searchMode?: boolean;
   errorMessage?: null | string;
   children?: React.ReactNode;
+  dataTestId?: string;
 }
 
 const InputLabel = ({
@@ -12,6 +13,7 @@ const InputLabel = ({
   children,
   searchMode = false,
   type = "text",
+  dataTestId,
   ...props
 }: Props) => {
   const [inputType, setInputType] = useState(type);
@@ -36,6 +38,7 @@ const InputLabel = ({
         <input
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
+          data-testid={dataTestId}
           type={inputType}
           {...props}
         />
@@ -59,7 +62,11 @@ const InputLabel = ({
           </>
         )}
 
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+        {errorMessage && (
+          <div data-testid="error-message" className="error-message">
+            {errorMessage}
+          </div>
+        )}
       </Input>
       {children}
     </Wrapper>

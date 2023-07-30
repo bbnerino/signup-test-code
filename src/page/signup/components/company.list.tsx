@@ -41,12 +41,13 @@ const CompanyList = ({
   if (error) return <Wrapper>회사 불러오기에 실패했습니다..</Wrapper>;
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="company-list-popup">
       <div className="company_list">
         {filteredCompanyList.map((company, idx) => (
           <CompanyEl
             key={`${company + idx}`}
             onClick={handleCompanyClick(company)}
+            data-testid="company-list-item"
           >
             {company}
           </CompanyEl>
