@@ -15,7 +15,6 @@ export class SignupForm {
   constructor() {
     this.job = null;
     this.company = "";
-    this.license = "";
     this.email = "";
     this.password = "";
   }

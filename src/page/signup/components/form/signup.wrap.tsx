@@ -34,8 +34,8 @@ const Content = ({ children }: { children: React.ReactNode }) => {
 };
 
 interface FProps {
-  left?: { onSubmit: () => void; title: string };
-  right: { onSubmit: () => void; title: string };
+  left?: { onSubmit: () => void; title?: string };
+  right: { onSubmit: () => void; title?: string };
 }
 
 const Footer = ({ left, right }: FProps) => {
@@ -47,11 +47,11 @@ const Footer = ({ left, right }: FProps) => {
           variant="secondary"
           onClick={left.onSubmit}
         >
-          {left.title}
+          {left.title || "< 이전"}
         </RoundButton>
       )}
       <RoundButton data-testid="next-button" onClick={right.onSubmit}>
-        {right.title}
+        {right.title || "다음 >"}
       </RoundButton>
     </FooterWrapper>
   );
