@@ -20,7 +20,7 @@ const Signup1 = ({ signupForm, setSignupForm, setChapter }: SignupProps) => {
         <JobList signupForm={signupForm} setJob={setJob} />
       </SignupWrap.Content>
 
-      <SignupWrap.Footer right={{ onSubmit, title: "다음 &gt;" }} />
+      <SignupWrap.Footer right={{ onSubmit, title: "다음 >" }} />
     </SignupWrap>
   );
 };

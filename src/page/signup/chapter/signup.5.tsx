@@ -63,7 +63,7 @@ const Signup5 = ({ setChapter, signupForm, setSignupForm }: SignupProps) => {
 
       <SignupWrap.Footer
         left={{ onSubmit: toPrev, title: "< 이전" }}
-        right={{ onSubmit, title: "다음 &gt;" }}
+        right={{ onSubmit, title: "다음 >" }}
       />
     </SignupWrap>
   );
