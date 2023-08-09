@@ -1,16 +1,16 @@
-import React, { createContext } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import RoundButton from "../../../../library/button/round.button";
 
 // Context 생성
 
-const WrapperContext = createContext({});
+// const WrapperContext = createContext({});
 
 const SignupWrap = ({ children }: { children: React.ReactNode }) => {
   return (
-    <WrapperContext.Provider value={{}}>
-      <Wrapper>{children}</Wrapper>
-    </WrapperContext.Provider>
+    // <WrapperContext.Provider value={{}}>
+    <Wrapper>{children}</Wrapper>
+    // </WrapperContext.Provider>
   );
 };
 
